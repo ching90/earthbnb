@@ -1,23 +1,17 @@
 class UsersController < ApplicationController
 	def index
-		render html: "hello, world!"
 	end
 
-	def show
-	end
+	# def new
+ #       user = User.new
+ #       byebug
+ #       if user.save
+ #       	 flash[:success] = "Welcome to the Sample App!"
+ #         redirect_to 'show'
+ #       else
+ #         flash[:error]="invalid"
+ #         render '/'
+ #       end
 
-	def new
-	end
-
-	def edit
-	end
-
-	def create
-	end
-
-	def update
-	end
-
-	def destroy
-	end
+	# end
 end

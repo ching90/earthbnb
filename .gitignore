@@ -11,3 +11,9 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore application configuration
+/config/application.yml
+
+
+#IMPORTANT: Check if .gitignore file includes config/application.yml - this will ensure that your application.yml is NOT tracked by git!"

@@ -1,0 +1,73 @@
+<div class="text-field">
+	<%= form.label :title %>
+  <%= form.text_field :title%>
+</div>
+
+<div class="text-field">
+<%= form.label "What kind of place are you listing?" %>
+  <select name= :kind_of_place>
+    <option value="1">Entire place</option>
+
+    <option value="2">Private room</option>
+
+    <option value="3">Shared room</option>
+
+  </select> 
+</div>
+
+
+<div class="text-field">
+<%= form.label "What types of property?" %>
+  <select name= :types_of_property>
+    <option value="1">Apartment</option>
+    <option value="2">Guest House</option>
+    <option value="3">Bed & Breakfast</option>
+    <option value="3">Condominium</option>
+  </select> 
+</div>
+
+<div class="text-field">
+	<%= form.label :location %>
+  <%= form.text_field :location%>
+</div>
+
+<div class="text-field">
+<%= form.label :description %>
+  <%= form.text_field :description%>
+</div>
+
+<div class="url-field">
+  <%= form.label "Upload Photo:" %>
+  <%= form.url_field :photo%>
+</div>
+
+<div class="number-field">
+  <%= form.label "Price per night:" %>
+  <%= form.number_field :rental_price%>
+</div>
+
+<div class="number-field">
+	<%= form.label "How many beds available?" %>
+  <%= form.number_field :bed%>
+</div>
+
+
+<div class="number-field">
+	<%= form.label "How many bathrooms?" %>
+  <%= form.number_field :bathroom%>
+</div>
+
+<div class="number-field">
+	<%= form.label "How many guests can stay?" %>
+  <%= form.number_field :guest_allowed%>
+</div>
+
+
+
+<div class="text-field">
+	<%= form.label :safety_amenities %>
+  <%= check_box_tag :safety_amenities, checked = true %> Smoking friendly</br>
+
+
+</div>
+

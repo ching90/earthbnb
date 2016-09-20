@@ -1,3 +1,81 @@
-<h1>Hi, <%=link_to current_user.name, user_path(current_user.id)%></h1>
+<div class="container-fluid">
 
-<%=link_to 'Edit', edit_user_path(current_user.id)%></br>
+	<% if signed_in? %>
+	<h1>Hi, <%=link_to current_user.name, user_path(current_user.id)%></h1>
+
+	<% end %>
+
+	<h1>LIVE THERE</h1>
+	<p>Book homes from local hosts in 191+ countries and experience a place like you live there.</p>
+
+	<div id="myCarousel" class="carousel slide" data-ride="carousel" data-pause="">
+	  <!-- Indicators -->
+	  <ol class="carousel-indicators">
+	    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+	    <li data-target="#myCarousel" data-slide-to="1"></li>
+	    <li data-target="#myCarousel" data-slide-to="2"></li>
+	    <li data-target="#myCarousel" data-slide-to="3"></li>
+	  </ol>
+
+	  <!-- Wrapper for slides -->
+	  <div class="carousel-inner" role="listbox">
+	    <div class="item">
+	      <img src="https://tctechcrunch2011.files.wordpress.com/2014/09/airbnb-a8707ed9_original.jpg?w=738" class="tales" alt="Chania">
+	    </div>
+
+	    <div class="item active">
+	      <img src="http://www.travelandleisure.com/sites/default/files/styles/1600x1000/public/1458067297/airbnb-introvert-GUIDE0316.jpg?itok=YM2fmQI8" class="tales" alt="Chania">
+	    </div>
+
+	    <div class="item">
+	      <img src="https://static.dezeen.com/uploads/2016/08/samara-airbnb-dezeen-facebook.jpg" class="tales" alt="Flower">
+	    </div>
+
+	    <div class="item">
+	      <img src="http://67.media.tumblr.com/b154bb8fac058053cb73d930c5faf8e5/tumblr_inline_n92g18pyzD1r07720.jpg" class="tales" alt="Flower">
+	    </div>
+	  </div>
+
+	  <!-- Left and right controls -->
+	  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+	    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+	    <span class="sr-only">Previous</span>
+	  </a>
+	  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+	    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+	    <span class="sr-only">Next</span>
+	  </a>
+	</div>
+</div>
+
+<div class="container-fluid">
+
+	<div id="divider">
+
+	  <div class="col-md-8">
+
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" data-pause="">
+			  <!-- Wrapper for slides -->
+			  <div class="carousel-inner" role="listbox" style="height: 200px !important;">
+			    <div class="item active ">
+			      <img src="https://tctechcrunch2011.files.wordpress.com/2014/09/airbnb-a8707ed9_original.jpg?w=738" class="tales" alt="Chania">
+			    </div>
+
+			    <div class="item">
+			      <img src="http://www.travelandleisure.com/sites/default/files/styles/1600x1000/public/1458067297/airbnb-introvert-GUIDE0316.jpg?itok=YM2fmQI8" class="tales" alt="Chania">
+			    </div>
+
+			  </div>
+			</div>
+
+	  </div>
+
+	  <div id="host-banner" class="col-md-4">
+			<div class="banner">Menjadi hos membuka sejuta peluang</div>
+				<div class="sub-banner">Jana pendapatan dengan berkongsi ruang anda dengan pengembara.</div>
+		</div>
+
+		
+	</div>
+</div>
+

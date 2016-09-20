@@ -1,0 +1,18 @@
+<div class="container-fluid">
+
+
+	Welcome listing, <%=current_user.name%></br>
+
+	<%=link_to "Start Hosting", new_listing_path%>
+	<div>
+		<%@listing.each do |x|%>
+		<div id="cardDesign" class="col-md-4" style="background-color: #7FFFD4">
+			<span><%=link_to x.title, listing_path(x.id)%></span></br>
+			<span>RM <%=x.rental_price%></span></br>
+			<span><img src=<%=x.photo%> class="img-rounded" width="304" height="236"></span></br>
+			<span>posted by <%=x.user.name%></span></br>
+		</div>
+		<%end%>
+	</div>
+
+</div>

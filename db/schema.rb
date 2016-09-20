@@ -11,20 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160914082518) do
+ActiveRecord::Schema.define(version: 20160918061233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "authentications", force: :cascade do |t|
+    t.string   "uid"
+    t.string   "token"
+    t.string   "provider"
+    t.string   "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "listings", force: :cascade do |t|
+    t.string   "title"
+    t.string   "kind_of_place"
+    t.string   "types_of_property"
+    t.float    "rental_price"
+    t.string   "location"
+    t.string   "description"
+    t.string   "photo"
+    t.integer  "bed",               default: 1
+    t.integer  "guest_allowed",     default: 1
+    t.integer  "bathroom",          default: 1
+    t.integer  "user_id"
+    t.boolean  "safety_amenities"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string   "name"
-    t.string   "email"
-    t.string   "password"
+    t.string   "email",                          null: false
+    t.string   "encrypted_password", limit: 128, null: false
+    t.string   "confirmation_token", limit: 128
+    t.string   "remember_token",     limit: 128, null: false
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.string   "encrypted_password", limit: 128
-    t.string   "confirmation_token", limit: 128
-    t.string   "remember_token",     limit: 128
   end
 
   add_index "users", ["email"], name: "index_users_on_email", using: :btree

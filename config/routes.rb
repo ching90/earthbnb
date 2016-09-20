@@ -13,9 +13,14 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   resources :users
 
-  
+  resources :listings
 
   root 'users#index'
+
+  # for facebook Omniauth
+  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+
+
 
   # resources :listings, only: [:index, :new, :create]
   # The priority is based upon order of creation: first created -> highest priority.

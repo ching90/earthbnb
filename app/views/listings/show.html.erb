@@ -3,12 +3,16 @@
 <div>
 <span><h3><%=@listing.title%><h3></span>
 <span><h5>RM <%=@listing.rental_price%><h5></span>
-<span><img class="img-responsive" src=<%=@listing.photo%>></span>
+
+<%= image_tag (@listing.avatars[0].large.url) %>
 </div>
 
-<%= link_to "Home", listings_path, method: "get"%>
+<a href="/listings"><button type="button" class="btn btn-outline-success">Home</button></a>
+
 
 <%if @listing.user_id == current_user.id%>
+
+<%= link_to "Edit", edit_listing_path(@listing.id)%>
 
 <%= link_to "Delete", listing_path(@listing.id), method: "DELETE", data: {confirm:"Are you sure?"}%>
 <%end%>

@@ -7,7 +7,6 @@ class CreateListings < ActiveRecord::Migration
     	t.float :rental_price
     	t.string :location
     	t.string :description
-    	t.string :photo
     	t.integer :bed, default:1
       t.integer :guest_allowed, default:1
       t.integer :bathroom, default:1

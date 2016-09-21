@@ -25,26 +25,35 @@ class ListingsController < ApplicationController
        else
          render 'index'
        end
-    end
+  end
 
-    def show
+  def show
     
-    end
+  end
 
-    def destroy
+  def edit
+  end
+
+  def update
+    @listing.update(listing_params)
+    redirect_to listing_path(@listing.id)
+  end
+
+  def destroy
     	listing = @listing.delete
     	redirect_to listings_path
-    end
+  end
 
-    private
-    def set_listing
-    	@listing = Listing.find(params[:id])
-    end
+  private
+  def set_listing
+  	@listing = Listing.find(params[:id])
+  end
 
-    def listing_params
-    	params.require(:listing).permit(:title, :kind_of_place, :types_of_property, :rental_price, :location, :description, :photo, :bed, :guest_allowed, :bathroom, :safety_amenities, :user_id)
+  def listing_params
+    	params.require(:listing).permit(:title, :kind_of_place, :types_of_property, :rental_price, :location, :description, :photo, :bed, :guest_allowed, :bathroom, :safety_amenities, :user_id, {avatars:[]})
 	end
 
+end
 
 
 
@@ -59,4 +68,4 @@ class ListingsController < ApplicationController
 
 
 
-end
+

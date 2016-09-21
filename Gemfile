@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+gem 'mini_magick'
+
+gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem 'omniauth-facebook'
 gem "figaro"
 gem "clearance"

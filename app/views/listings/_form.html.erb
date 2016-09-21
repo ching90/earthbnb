@@ -1,3 +1,5 @@
+
+
 <div class="text-field">
 	<%= form.label :title %>
   <%= form.text_field :title%>
@@ -36,10 +38,7 @@
   <%= form.text_field :description%>
 </div>
 
-<div class="url-field">
-  <%= form.label "Upload Photo:" %>
-  <%= form.url_field :photo%>
-</div>
+<%= form.file_field :avatars, multiple: true %>
 
 <div class="number-field">
   <%= form.label "Price per night:" %>
@@ -70,4 +69,6 @@
 
 
 </div>
+
+
 

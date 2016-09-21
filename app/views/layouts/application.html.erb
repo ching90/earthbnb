@@ -22,24 +22,39 @@
   <div>
 
     <div class="container-fluid">
-    <nav class="navbar navbar">
+      
+      <nav class="nav nav-inline">
 
-        <ul class="nav nav-pills navbar-right">  
+        <ul class="nav navbar-right">  
           <% if signed_in? %>
 <!--           <li>Signed in as: <%= current_user.email %><li> -->
           <li class="active"><a href="/">Home</a></li>
-          <li><%= link_to 'Sign out', sign_out_path, method: :delete %></li>
+
           <li><%= link_to "Become a Host", listings_path, method: "get"%></li>
-          <li><%= link_to "My profile", user_path(current_user.id), method: "get"%></li>
+          
+          <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="users/<%=current_user.id%>">My Profile
+                <span><%= image_tag (current_user.avatars[0].thumb.url), class:"profile-thumbnail"%></span>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li><%=link_to 'Edit', edit_user_path(current_user.id)%></li>
+              <li><a href="#">Account Settings</a></li>
+              <li><%= link_to 'Log Out', sign_out_path, method: :delete %></li> 
+            </ul>
+
+          </li>
+
           <%else%>
           
           <li><%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in"%></li>
-          <li><li><a href="/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a href="/sign_in"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          
           <%end%>
         </ul>
 
-      </div>
-    </nav>
+      
+      </nav>
     </div>
   </div>
 

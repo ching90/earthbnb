@@ -1,39 +1,41 @@
 class UsersController < Clearance::UsersController
-	def index
+	before_action :set_user, only: [:show, :update, :edit, :destroy]
+
+  def index
 	end
     
-    def show
-    	@user = User.find(params[:id])
-    end
+  def show
+  end
 
-    def new
-       @user = User.new
-    end
+  def new
+     @user = User.new
+  end
 
-    def create
-    	@user = User.new(user_params)
-       if @user.save
-		  redirect_to users_path
-       else
-         render 'index'
-       end
-    end
+  def create
+  	@user = User.new(user_params)
+     if @user.save
+	  redirect_to users_path
+     else
+       render 'index'
+     end
+  end
 
-    def edit
-      @user = User.find(params[:id])
-    end
+  def edit
+  end
 
 	def update
-      user = User.find(params[:id])
-
-	  user.update(user_params)
-	  redirect_to users_path
+	  @user.update(user_params)
+	  redirect_to user_path(@user.id)
 	end
 
   private
+  
+  def set_user
+    @user = User.find(params[:id])
+  end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email, :password, {avatars:[]})
   end
 
   # def user_from_params

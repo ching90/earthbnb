@@ -1,3 +1,25 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.profile-thumbnail{
+
+	height: 25px;
+	width:25px;
+	border: 2px solid lightgrey;
+    border-radius: 25px;
+}
+
+
+.dropdown:hover .dropdown-menu {
+   display: block;
+}
+
+.nav .navbar-right a{
+
+	font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    color: #484848;
+}
+
+

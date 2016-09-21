@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   include Clearance::User
-
+  mount_uploaders :avatars, AvatarUploader
+  
   validates :email, presence: true
 
   has_many :listings

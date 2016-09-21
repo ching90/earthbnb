@@ -1,6 +1,10 @@
-<%=current_user.name%>'s Profile
+<%=@user.name + "'s"  if @user.name.present?%> Profile
 
+<%= image_tag (@user.avatars[0].thumb.url) if @user.avatars.present?%>
 
-<%=link_to 'Edit', edit_user_path(current_user.id)%></br>
 
 <%= link_to 'Home', users_path%>
+
+<%if current_user.id == @user.id%>
+<%=link_to 'Edit', edit_user_path(@user.id)%></br>
+<%end%>

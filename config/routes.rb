@@ -13,14 +13,20 @@ Rails.application.routes.draw do
   get "/sign_up" => "clearance/users#new", as: "sign_up"
   resources :users
 
-  resources :listings
+  resources :listings do
+      #reservation, nested under listings
+    resources :reservations, only: [:create, :destroy]
+  end
 
   root 'users#index'
 
   # for facebook Omniauth
   get "/auth/:provider/callback" => "sessions#create_from_omniauth"
-
-
+  
+  # #reservation, nested under listings
+  # resources :reservations, only: [:create, :destroy]
+  #reservations_path(@listing.id,@reservation.id)
+  #if wannna call out the method
 
   # resources :listings, only: [:index, :new, :create]
   # The priority is based upon order of creation: first created -> highest priority.

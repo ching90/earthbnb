@@ -7,6 +7,7 @@
 	<%=f.text_field :email%>
 	<%=f.label :password%>
 	<%=f.text_field :password%>
-	
+	<%=f.file_field :avatars, multiple: true %>
+
 	<%=f.submit "Save Changes", class: "btn btn-info"%>
 <%end%>

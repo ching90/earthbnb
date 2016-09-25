@@ -5,10 +5,22 @@ class ListingsController < ApplicationController
 		if !signed_in?
 			redirect_to users_path
 
-		end
+    else
+      @listing = Listing.all
+      listings_per_page = 7
+      params[:page] = 1 unless params[:page]
+      first_listing = (params[:page].to_i - 1 ) * listings_per_page
+      listings = Listing.all
+      @total_pages = listings.count / listings_per_page
+      
+      if listings.count % listings_per_page > 0
+        @total_pages += 1
+      end
+        @listings = listings[first_listing...(first_listing + listings_per_page)]
+    end
+  end
+		
 
-		@listing = Listing.all
-	end
 
 	def new
 		if !signed_in?
@@ -27,8 +39,27 @@ class ListingsController < ApplicationController
        end
   end
 
+
   def show
-    
+    @reservation = Reservation.new
+    @booked_date = Reservation.where(listing_id: params[:id])
+    @each_booking = @listing.reservations
+    #to find out the price of listing and pass it into javascript
+    @price = @listing.rental_price
+    gon.price = @price
+
+    @selected_dates=[]
+
+    @each_booking.each do |x|
+      @selected_dates << x.start_date.strftime("%Y-%m-%d")
+      while x.start_date != x.end_date
+       @selected_dates << (x.start_date += 1).strftime("%Y-%m-%d")
+      end
+
+    end
+
+    gon.selected_dates = @selected_dates
+
   end
 
   def edit

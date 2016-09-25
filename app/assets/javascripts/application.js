@@ -10,7 +10,33 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function() {
+
+
+  });
+
+// $(document).ready(function() {
+
+//  $("#datepicker").datepicker({
+//       language: "pl",
+//       autoclose: true,
+//       //removed line: startDate: '+1d',
+//       weekStart: 1,
+//       default: 'D, dd MM yy',
+//       beforeShowDay: function(date){
+//            var formattedDate = $.fn.datepicker.DPGlobal.formatDate(date, 'D, dd MM yy', 'pl');
+//            if ($.inArray(formattedDate.toString(), selected_dates) != -1){
+//                return {
+//                   enabled : false
+//                };
+//            }
+//           return;
+//       }
+//   });
+// });

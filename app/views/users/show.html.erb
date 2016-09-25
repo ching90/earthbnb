@@ -1,10 +1,33 @@
-<%=@user.name + "'s"  if @user.name.present?%> Profile
-
-<%= image_tag (@user.avatars[0].thumb.url) if @user.avatars.present?%>
-
-
-<%= link_to 'Home', users_path%>
-
-<%if current_user.id == @user.id%>
-<%=link_to 'Edit', edit_user_path(@user.id)%></br>
+<%if @user.name == nil %>
+	<div class="alert alert-success">
+	  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	  <strong>Edit Profile!</strong> Upload photos and names immediately
+	</div>
 <%end%>
+
+
+<div class ="user-show container-fluid">
+	<%= image_tag (@user.avatars[0].thumb.url) if @user.avatars.present? %>
+
+	<h5><%=@user.name + "'s"  if @user.name.present?%> Profile</h5>
+</div>
+
+
+<div class="user-show container-fluid">
+	<h3 id="user-show-subheader">Current Reservation</h3>
+	<%if @user_reserved != []%>
+		<%@user_reserved.each do |reserved|%>
+        _____________________________________________________
+			<li><a href="/listings/<%=reserved.listing.id%>"><b><%=reserved.listing.title%></b></a></br>
+				<%=reserved.start_date%> until <%=reserved.end_date%>
+
+				<%= button_to "Cancel", listing_reservation_path(reserved.listing.id, reserved.id), method:'delete', class:"cancel btn-danger", data: {confirm:"Are you sure?"}%>
+			</li>
+
+		_____________________________________________________
+		</br>
+		<%end%>
+	<%else%>
+		No reservations found in the record
+	<%end%>
+</div>

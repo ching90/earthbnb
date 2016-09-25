@@ -155,3 +155,51 @@ ol{
     font-size: 16px;	
 }
 
+.display-listing-info.container-fluid{
+	margin-bottom: 100px;
+}
+
+.listing-reservation-form.col-md-6{
+	border: 2px solid lightgrey;
+	padding-left: 85px;
+	padding-right: 85px;
+	height: 200px;
+}
+
+.submit-field input{
+
+	border-color: #ff5a5f;
+    border-bottom-color: #e00007;
+    background-color: #ff5a5f;
+	padding: 10px;
+	margin-top: 20px;
+    color: #fff;
+    width: 100%;
+    font-size: 16px;
+}
+
+.submit-field input:hover{
+	background-color: #ff7e82;
+}
+
+.display_line{
+	padding-left: 15px;
+	padding-right: 15px;
+	text-align: center;
+	font-size: 12px;
+	letter-spacing: 2px;
+
+}
+
+.hasDatePicker{
+	line-height: 20px;
+	padding-right: 5px;
+}
+
+
+:placeholder-shown{
+	color: orange;
+}
+// .date-field.col-md-6{
+
+// }

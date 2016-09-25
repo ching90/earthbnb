@@ -4,16 +4,251 @@
 <span><h3><%=@listing.title%><h3></span>
 <span><h5>RM <%=@listing.rental_price%><h5></span>
 
-<%= image_tag (@listing.avatars[0].large.url) %>
 </div>
+
+
+
+<div>
+
+		<div id="carousel-listing-show" class="carousel slide" data-ride="carousel" data-interval="3000">
+		  <!-- Indicators -->
+		  <ol class="carousel-indicators">
+		    <li data-target="#carousel-listing-show" data-slide-to="0" class="active"></li>
+		    <li data-target="#carousel-listing-show data-slide-to="1"></li>
+		    <li data-target="#carousel-listing-show" data-slide-to="2"></li>
+		  </ol>
+		 
+		  <!-- Wrapper for slides -->
+		  <div class="carousel-inner" role="listbox">
+		  	<%@listing.avatars.each_with_index do |pic, idx|%>
+		  	<div class="item <%="active" if idx == 0 %>">
+		  		<%=image_tag (pic.large.url)%>
+		  	</div>
+		  	<%end%>
+		  </div>
+
+		 
+		  <!-- Controls -->
+			<a class="left carousel-control" href="#carousel-listing-show" role="button" data-slide="prev">
+		    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+		    <span class="sr-only">Previous</span>
+		  </a>
+
+		  <a class="right carousel-control" href="#carousel-listing-show" role="button" data-slide="next">
+		    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+		    <span class="sr-only">Next</span>
+		  </a>
+
+		</div> <!-- Carousel -->
+
+</div>
+
+
+
 
 <a href="/listings"><button type="button" class="btn btn-outline-success">Home</button></a>
 
 
 <%if @listing.user_id == current_user.id%>
 
-<%= link_to "Edit", edit_listing_path(@listing.id)%>
 
-<%= link_to "Delete", listing_path(@listing.id), method: "DELETE", data: {confirm:"Are you sure?"}%>
+	<%= link_to "Edit", edit_listing_path(@listing.id)%>
+
+	<%= link_to "Delete", listing_path(@listing.id), method: "DELETE", data: {confirm:"Are you sure?"}%>
+
 <%end%>
 
+<div class="display-listing-info container-fluid">
+	<div class="listing col-md-6">
+		<h3>Booked Date:</h3></br>
+
+		<% @booked_date.each do |x| %>
+			<li><%= x.start_date%> until <%=x.end_date%></li>
+		<%end%>
+
+	</div>
+
+
+	<div class="listing-reservation-form col-md-6">	
+
+		<%unless current_user.id == nil %>
+
+			<h3>Reservation Form</h3>
+
+			<%= form_for @reservation, url: listing_reservations_path(@listing.id) do |form| %>	
+
+			<div class="row">	
+					<div class="date-field col-md-6">
+					<%= form.label "Check In" %>
+      			<%= form.text_field :start_date, onchange:"getTotalDays()"%>
+      		</div>
+      		<div class="date-field col-md-6">
+					  <%= form.label :end_date %>
+	      			<%= form.text_field :end_date, onchange:"getTotalDays()"%>
+
+	      			<%= form.hidden_field :totalprice, value:""%>
+      		</div>
+      </div>
+
+      <div class="row">			
+      		<div class="submit-field col-md-12"">
+			    <%= form.submit "Instant Book"%>
+			</div>
+
+			<% end %>
+
+			<div class="row">	
+			 		<div class="date-field col-md-12">
+						<div class="receipt row">
+							<span class="display_line col-md-2"></span>
+							<span class="display_line col-md-4" id="totalnights"></span>
+							<span class="display_line col-md-4" id="totalprice"></span>
+							<span class="display_line col-md-2"></span>
+							
+						</div>
+					</div>
+			</div>
+
+		<%else%>
+
+			<h5>Please Login before booking</h5>
+			
+		<%end%>
+
+	
+	</div>
+</div>
+
+
+<script type="text/javascript">	
+
+	// function validateInputs(){
+		
+	// 	var startDate = document.getElementById("reservation_start_date").value;
+	// 	var endDate = document.getElementById("reservation_end_date").value;
+	// 	debugger;
+	// 	// if (startDate === "" || endDate === ""){
+	// 	// 	debugger;
+	// 	// 	alert("Seems like missing one of the date..")
+
+	// 	// 	return false;
+	// 	// }else{
+	// 	// return true;
+	// 	// }
+
+	// };
+
+	function displayStartDate(){
+		var startDate = document.getElementById("reservation_start_date").value;
+		return startDate;
+	};
+
+	function displayEndDate(){	
+		var endDate = document.getElementById("reservation_end_date").value;
+		return endDate;
+	};	
+
+	function stringToDate(_date,_format,_delimiter){
+	            var formatLowerCase=_format.toLowerCase();
+	            var formatItems=formatLowerCase.split(_delimiter);
+	            var dateItems=_date.split(_delimiter);
+	            var monthIndex=formatItems.indexOf("mm");
+	            var dayIndex=formatItems.indexOf("dd");
+	            var yearIndex=formatItems.indexOf("yyyy");
+	            var month=parseInt(dateItems[monthIndex]);
+	            month-=1;
+	            var formatedDate = new Date(dateItems[yearIndex],month,dateItems[dayIndex]);
+	            return formatedDate;
+	};
+	
+ 	function getTotalDays(){
+	    // The number of milliseconds in one day
+	    var ONE_DAY = 1000 * 60 * 60 * 24
+	    var startDate = stringToDate(displayStartDate(),"yyyy-mm-dd","-");
+
+	    if (displayEndDate() !== ""){
+
+		    var endDate = stringToDate(displayEndDate(),"yyyy-mm-dd","-");
+		    var difference_ms = endDate - startDate
+		    // Convert back to days and return
+		    var totalNights= Math.round(difference_ms/ONE_DAY)
+		    document.getElementById("totalnights").innerHTML = totalNights + "-night stay";
+
+		    var pricePerNight = gon.price
+		    var totalPrice = pricePerNight * totalNights
+
+		    document.getElementById("totalprice").innerHTML = " Total: MYR " + totalPrice;
+		    document.getElementById("reservation_totalprice").value = totalPrice;
+		}else{ 
+			document.getElementById("totalnights").innerHTML =" ";
+			
+		}
+	};
+                                      
+    var selected_dates = gon.selected_dates;
+	$("#reservation_start_date").datepicker({
+    	dateFormat: 'yy-mm-dd',
+    	minDate: 0,
+    	onClose: function(selectedDate) {
+        // Set the minDate of 'endDate' as the selectedDate of 'startdate'
+        	$("#reservation_end_date").datepicker("option", "minDate", selectedDate);
+        	
+    	},
+
+    	onSelect: function(date, inst){
+	    	var endDate = document.getElementById("reservation_end_date").value;
+			for (i = 0; i < selected_dates.length; i++) {
+
+			    if  (date <= selected_dates[i] && selected_dates[i] <= endDate){	     
+			    	document.getElementById("totalprice").innerHTML = ""; 	
+			     	alert("Booking exists in between dates!!");			     	
+			     	break;			    	
+			    }
+			};
+
+			displayEndDate();
+			getTotalDays();	
+	    }, 
+
+		beforeShowDay: function(date){
+
+		   if ($.inArray($.datepicker.formatDate('yy-mm-dd', date ), selected_dates) != -1){
+		       return [false,"","Not available"];
+		   } 
+		   else {
+		   		return [true,"","Available"]; 
+		   }
+		} 
+	});
+
+
+    $("#reservation_end_date").datepicker({
+    	dateFormat: 'yy-mm-dd',
+
+	    onSelect: function(date, inst){	    	
+	    	var startDate = document.getElementById("reservation_start_date").value;
+			for (i = 0; i < selected_dates.length; i++) {
+			    if  (date >= selected_dates[i] && selected_dates[i] >= startDate){
+			    	document.getElementById("reservation_end_date").value = ""
+			     	alert("Booking exists in between dates!!");
+			     	break;			    	
+			    }
+			};
+
+			displayEndDate();
+			getTotalDays();
+	    }, 
+
+		beforeShowDay: function(date){
+
+		   if ($.inArray($.datepicker.formatDate('yy-mm-dd', date ), selected_dates) != -1){
+		       return [false,"","Not available"];
+		   } 
+
+		   else {
+		   		return [true,"","Available"]; 
+		   }
+		}
+    });
+
+</script>

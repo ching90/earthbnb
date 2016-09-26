@@ -1,3 +1,4 @@
+
 <div style="color:lightgrey"><h1>Listing Show page</h1></div>
 
 <div>
@@ -62,7 +63,7 @@
 	<div class="listing col-md-6">
 		<h3>Booked Date:</h3></br>
 
-		<% @booked_date.each do |x| %>
+		<% @each_booking.each do |x| %>
 			<li><%= x.start_date%> until <%=x.end_date%></li>
 		<%end%>
 
@@ -91,7 +92,7 @@
       </div>
 
       <div class="row">			
-      		<div class="submit-field col-md-12"">
+      		<div class="submit-field col-md-12">
 			    <%= form.submit "Instant Book"%>
 			</div>
 
@@ -122,21 +123,21 @@
 
 <script type="text/javascript">	
 
-	// function validateInputs(){
+	function validateInputs(){
 		
-	// 	var startDate = document.getElementById("reservation_start_date").value;
-	// 	var endDate = document.getElementById("reservation_end_date").value;
-	// 	debugger;
-	// 	// if (startDate === "" || endDate === ""){
-	// 	// 	debugger;
-	// 	// 	alert("Seems like missing one of the date..")
+		var startDate = document.getElementById("reservation_start_date").value;
+		var endDate = document.getElementById("reservation_end_date").value;
 
-	// 	// 	return false;
-	// 	// }else{
-	// 	// return true;
-	// 	// }
+		// if (startDate === "" || endDate === ""){
+		// 	debugger;
+		// 	alert("Seems like missing one of the date..")
 
-	// };
+		// 	return false;
+		// }else{
+		// return true;
+		// }
+
+	};
 
 	function displayStartDate(){
 		var startDate = document.getElementById("reservation_start_date").value;
@@ -211,7 +212,7 @@
 	    }, 
 
 		beforeShowDay: function(date){
-
+	
 		   if ($.inArray($.datepicker.formatDate('yy-mm-dd', date ), selected_dates) != -1){
 		       return [false,"","Not available"];
 		   } 

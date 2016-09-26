@@ -1,5 +1,5 @@
 class ReservationsController < ApplicationController
-	# before_action :check_dates, only:[:create]
+	#before_action :check_available_dates, only:[:create]
 
 
   def new
@@ -13,12 +13,18 @@ class ReservationsController < ApplicationController
 
   # end
 
+
+  #def check_available_dates
+
+  #end
+
   def create
     @listing = Listing.find(params[:listing_id])
     @reservation = @listing.reservations.new(reservation_params)
 
     #fill in for user_id in new reservation
     @reservation.user_id = current_user.id 
+    @host = "sooching4896@gmail.com"
 
     if @reservation.start_date <= Date.today
 
@@ -26,12 +32,23 @@ class ReservationsController < ApplicationController
     	@booked_date = Reservation.where(listing_id: params[:id])
 
     	flash[:error] = "Date not available"
- 		render 'listings/show'
+ 		  render 'listings/show'
  		
-
+      
+    
+  
     elsif @reservation.save
+      flash[:success] = "#{@reservation.id} - new reservation created!"
 
-      	redirect_to listing_path(@listing.id)
+      # ReservationMailer.notification_email(current_user.email, @host, @listing.id, @reservation.id).deliver_later
+      # ReservationMailer to send a notification email after save
+
+
+      ReservationJob.perform_later(current_user.email, @host, @reservation.listing.id, @reservation.id)
+      # call out reservation job to perform the mail sending task after @reservation is successfully saved
+
+
+      redirect_to listing_path(@listing.id)
     
     else
       render 'show'

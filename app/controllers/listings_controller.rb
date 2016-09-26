@@ -41,24 +41,22 @@ class ListingsController < ApplicationController
 
 
   def show
+
     @reservation = Reservation.new
-    @booked_date = Reservation.where(listing_id: params[:id])
+    #to find all thr reservations under this listing
     @each_booking = @listing.reservations
     #to find out the price of listing and pass it into javascript
     @price = @listing.rental_price
-    gon.price = @price
-
     @selected_dates=[]
 
     @each_booking.each do |x|
-      @selected_dates << x.start_date.strftime("%Y-%m-%d")
-      while x.start_date != x.end_date
-       @selected_dates << (x.start_date += 1).strftime("%Y-%m-%d")
-      end
-
+      range = *(x.start_date.strftime("%Y-%m-%d")..x.end_date.strftime("%Y-%m-%d"))
+      
+      @selected_dates << range
     end
-
-    gon.selected_dates = @selected_dates
+    
+    gon.price = @price
+    gon.selected_dates = @selected_dates.flatten
 
   end
 

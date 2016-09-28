@@ -7,7 +7,7 @@ class Listing < ActiveRecord::Base
    #make your model searchable
     include Elasticsearch::Model
   	include Elasticsearch::Model::Callbacks
-  	index_name("#{Rails.env}")
+  	
 	# def self.count_nights
 	# 	end_date - start_date
 	# end

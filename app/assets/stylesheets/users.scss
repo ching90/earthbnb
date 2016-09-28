@@ -143,7 +143,7 @@ $purple-2: #6434A2;
     height: 40px;
     left: 0;
     margin-left: 0px;
-    top: -47px;
+    top: -49px;
     margin-top: 1px;
     border-radius: 40px;
     cursor: pointer;
@@ -311,11 +311,11 @@ body {
           font-weight: 700;
         }
 
-
-
     }
 
-
-
 }
+
+.navbar-fixed-bottom, .navbar-fixed-top {
+    height: 55px;
+  }
 

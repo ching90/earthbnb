@@ -63,6 +63,13 @@
     border-color: transparent;
     background-color: black;
     margin-bottom: 0px;
+
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    height: 55px;
+
 }
 
 .glyphicon {
@@ -315,7 +322,4 @@ body {
 
 }
 
-.navbar-fixed-bottom, .navbar-fixed-top {
-    height: 55px;
-  }
 

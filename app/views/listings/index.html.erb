@@ -17,21 +17,21 @@
 
 <div class="container-fluid">
 	<div id="cardDesign-container">
-		<%@listings.each do |x|%>
+		<%@listings.each do |listing|%>
 
 		<div class="cardDesign col-md-3">
 			<div class="img-uppercard">
 				
-				<a href="/listings/<%=x.id%>"><%= image_tag (x.avatars[0].square.url) %></a>
+				<a href="<%= listing_path(listing) %>"><%= image_tag (listing.avatars[0].square.url) %></a>
 			</div>	
 			</br>
 			<div class="img-lowercard">
-				<ol class="listing-title"><b><%=x.title%></b></ol></br>
-				<ol>RM <%=x.rental_price%></ol></br>
-				<ol>posted by <%=x.user.name%></ol></br>
+				<ol class="listing-title"><b><%=listing.title%></b></ol></br>
+				<ol>RM <%=listing.rental_price%></ol></br>
+				<ol>posted by <%=listing.user.name%></ol></br>
 				<ol>
 					<div class="pull-right">
-						<a href="/listings/<%=x.id%>"><button type="button" class="btn btn-success">Book Now</button></a>
+						<a href="<%= listing_path(listing) %>"><button type="button" class="btn btn-success">Book Now</button></a>
 					</div>
 				</ol>
 			</div>

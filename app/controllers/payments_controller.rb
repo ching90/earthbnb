@@ -30,7 +30,7 @@ class PaymentsController < ApplicationController
         
         redirect_to listing_path(:id => @listing_id), notice: "Congratulations! Your transaction is successful!"
     else
-        Payment.create(reservation_id: params[:payment][:reservation_id], braintree_transaction_id: @result.transaction.id, status: @result.transaction.status, fourdigit: @result.transaction.credit_card_details.last_4)
+        Payment.create(reservation_id: params[:payment][:reservation_id], braintree_payment_id: @result.transaction.id, status: @result.transaction.status, fourdigit: @result.transaction.credit_card_details.last_4)
         flash[:alert] = "Something went wrong while processing your transaction. Please try again!"
         @client_token = Braintree::ClientToken.generate
         @reservation = Reservation.find(params[:payment][:reservation_id])

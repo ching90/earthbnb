@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :users
   resources :payments, only: [:create, :new]
 
-  get '/search', to: 'listings#search'
+  get '/search', to: 'listings#search', as: 'search'
 
   resources :listings do
       #reservation, nested under listings

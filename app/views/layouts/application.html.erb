@@ -5,20 +5,22 @@
    <%= include_gon %>
     <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
+
 
   <!-- jQuery library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
+<!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ -->
   <!-- Latest compiled JavaScript -->
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-  <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-
+<!--   <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+ -->
 
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
@@ -27,7 +29,6 @@
 
 </head>
 <body>
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
 
 
 <div class="navbar container-fluid" style="margin-bottom:0px;">
@@ -36,27 +37,21 @@
 
         <ul class="nav navbar-nav navbar-left">
           <li>
-              <a href="#"><%=image_tag 'http://logok.org/wp-content/uploads/2014/07/airbnb-logo-belo-880x628.png', style:"margin-top:-17px; height:68px; width:96px;"%></a>
+              <a href="<%= root_path %>"><%=image_tag 'http://logok.org/wp-content/uploads/2014/07/airbnb-logo-belo-880x628.png', style:"margin-top:-17px; height:68px; width:96px;"%></a>
           </li>
           
           <li>
-               <div class="stage">
-
-                <div class="cell"> 
-                  <div class="searchbar"> 
-   
-                    <form class="new_listing" id="new_listing" action="/search" accept-charset="UTF-8" method="get">
-
-                        <input type="text" name="term" class="btn-extended" id="term" value="kyoto" placeholder="Where do you wanna go?">
-             
-                    </form>
-                    <div class="btn-search">
-
-                    </div>  
-                  </div>
-                </div> <!-- .cell -->
-               </div><!-- .stage -->
-
+            <div class="stage">
+              <div class="cell"> 
+                <div class="searchbar"> 
+                  <form class="new_listing" id="new_listing" action="<%= search_path %>" accept-charset="UTF-8" method="get">
+                    <input type="text" name="term" class="btn-extended" id="term" placeholder="Where do you wanna go?">
+                  </form>
+                  <div class="btn-search">
+                  </div>  
+                </div>
+              </div> <!-- .cell -->
+            </div><!-- .stage -->
           </li>
         </ul>
 
@@ -67,7 +62,7 @@
            
             <li class="dropdown">
               <a class="dropdown-toggle" href="/users/<%=current_user.id%>">My Profile
-                  <%if current_user.avatars != []%>
+                  <% if !current_user.avatars.empty? %>
 
                     <span><%= image_tag (current_user.avatars[0].thumb.url), class:"profile-thumbnail"%></span>
                   <%end%>
@@ -80,8 +75,8 @@
               </ul>
 
             </li>
-            <li><%= link_to "Become a Host", listings_path, method: "get"%></li>
-            <li class="circle"><a href="/">Home</a></li>
+            <li><%= link_to "Become a Host", new_listing_path, method: "get"%></li>
+            <li class="circle"><a href="<%= root_path %>">Home</a></li>
 
           <%else%>
           

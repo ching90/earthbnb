@@ -47,7 +47,7 @@
 
 
 
-<a href="/listings"><button type="button" class="btn btn-outline-success">Home</button></a>
+<a href="<%= listings_path %>"><button type="button" class="btn btn-outline-success">Home</button></a>
 
 
 <%if @listing.user_id == current_user.id%>
@@ -72,8 +72,6 @@
 
 	<div class="listing-reservation-form col-md-6">	
 
-		<%unless current_user.id == nil %>
-
 			<h3>Reservation Form</h3>
 
 			<%= form_for @reservation, url: listing_reservations_path(@listing.id) do |form| %>	
@@ -97,7 +95,6 @@
 						</div>
 				</div>
 
-			<% end %>
 	  	
 	  	<div class="display-row">	
 			 		<div class="date-field col-md-12">
@@ -110,12 +107,8 @@
 						</div>
 					</div>
 			</div>
-
-		<%else%>
-
-			<h5>Please Login before booking</h5>
 			
-		<%end%>
+		<%end%> <!-- end form -->
 
 	
 	</div>

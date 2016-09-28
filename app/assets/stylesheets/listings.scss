@@ -4,17 +4,17 @@
 
 // video container
 .video_container {
- position: relative;
- background:none;
- -webkit-background-size: cover;
- -moz-background-size: cover;
- background-size: cover;
- text-align: center;
- color: #fff;
- padding-top: 130px;
- min-height: 500px;
- letter-spacing: 2px;
- font-family: "Montserrat", sans-serif;
+  position: relative;
+  background:none;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  color: #fff;
+  padding-top: 130px;
+  min-height: 500px;
+  letter-spacing: 2px;
+  font-family: "Montserrat", sans-serif;
 }
 .video_container h1 {
  font-size: 50px;
@@ -39,21 +39,23 @@
 }
 
 .listing_header_container{
-	margin-top: 20px;
-	margin-bottom: 20px;
-	text-align: center;
-	color: black;
-	letter-spacing: 2px;
-	h1{
-		font-size: 20px;
-	}
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: black;
+  letter-spacing: 2px;
+  h1{
+    font-size: 20px;
+  }
 }
+
 
 @media only screen and (max-width: 500px){
 
-.cardDesign{
-	width: 100%
-}}
+  .cardDesign{
+    width: 100%;
+  }
+}
 
 #cardDesign-container {
   display: flex;
@@ -62,7 +64,7 @@
 }
 
 // ol {
-// 	padding:2px;
+//  padding:2px;
 // }
 
 .cardDesign {
@@ -87,30 +89,30 @@ ol{
 }
 
 .img-uppercard{
-	overflow:hidden;
-	height:200px;
+  overflow:hidden;
+  height:200px;
 }
 
 .listing-title{
-	font-size: 14px;
+  font-size: 14px;
 }
 
 .img-lowercard{
 
-	 height:150px;
-	 line-height: 14px;
-	 font-size: 12px;
-	 padding: 5px;
-	  .btn-success{
-			border-radius: 20px;
-		}
+   height:150px;
+   line-height: 14px;
+   font-size: 12px;
+   padding: 5px;
+    .btn-success{
+      border-radius: 20px;
+    }
 
-		.btn-success:hover{
-			cursor: pointer;
-			transition: 0.5s;
-			color: #5cb85c;
-			background-color: #fff;
-		}
+    .btn-success:hover{
+      cursor: pointer;
+      transition: 0.5s;
+      color: #5cb85c;
+      background-color: #fff;
+    }
 
 }
 
@@ -131,59 +133,58 @@ ol{
 
 #divider{
 
-	margin-top: 50px;
-	margin-bottom: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 @media only screen and (max-width: 479px){
-	#divider{
-		width:100%
-
-	}
+  #divider{
+    width:100%
+  }
 }
 
 
 .display-listing-info.container-fluid{
-	margin-bottom: 100px;
+  margin-bottom: 100px;
 }
 
 .listing-reservation-form.col-md-6{
-	border: 2px solid lightgrey;
-	padding-left: 85px;
-	padding-right: 85px;
-	height: 200px;
+  border: 2px solid lightgrey;
+  padding-left: 85px;
+  padding-right: 85px;
+  height: 200px;
 }
 
 .submit-field input{
 
-	border-color: #ff5a5f;
+  border-color: #ff5a5f;
     border-bottom-color: #e00007;
     background-color: #ff5a5f;
-	padding: 10px;
-	margin-top: 20px;
+  padding: 10px;
+  margin-top: 20px;
     color: #fff;
     width: 100%;
     font-size: 16px;
 }
 
 .submit-field input:hover{
-	background-color: #ff7e82;
+  background-color: #ff7e82;
 }
 
 .display_line{
-	padding-left: 15px;
-	padding-right: 15px;
-	text-align: center;
-	font-size: 12px;
-	letter-spacing: 2px;
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 2px;
 
 }
 
 .hasDatePicker{
-	line-height: 20px;
-	padding-right: 5px;
+  line-height: 20px;
+  padding-right: 5px;
 }
 
 .display-row{
-	margin-top: 40px;
+  margin-top: 40px;
 }

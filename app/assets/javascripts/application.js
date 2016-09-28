@@ -16,7 +16,7 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).ready(function() {
+$(document).on('ready page:load', function() {
 	$('.btn-search').click(function(){
 	  $('.searchbar').toggleClass('clicked');
 	  $('.stage').toggleClass('faded');
@@ -27,7 +27,6 @@ $(document).ready(function() {
 	  }
 	  
 	});
-
   });
 
 // $(document).ready(function() {

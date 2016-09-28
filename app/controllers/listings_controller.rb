@@ -1,5 +1,6 @@
 class ListingsController < ApplicationController
 	before_action :set_listing, only: [:show, :update, :edit, :destroy]
+  before_action :require_login, only: [:index, :new]
 
 
 	def index
@@ -9,15 +10,15 @@ class ListingsController < ApplicationController
     first_listing = (params[:page].to_i - 1 ) * listings_per_page
     @total_pages = @listings.count / listings_per_page
 
-		if !signed_in?
-			redirect_to users_path
+		# if !signed_in?
+		# 	redirect_to users_path
 
-    else
-      if @listings.count % listings_per_page > 0
-        @total_pages += 1
-      end
-        @listings = @listings[first_listing...(first_listing + listings_per_page)]
+    # else
+    if @listings.count % listings_per_page > 0
+      @total_pages += 1
     end
+    @listings = @listings[first_listing...(first_listing + listings_per_page)]
+    # end
   end
 
   def search
@@ -30,7 +31,7 @@ class ListingsController < ApplicationController
 
 
     if @listings.blank?
-      redirect_to listings_path, flash:{danger: "no successful search result"}
+      redirect_to listings_path, flash: { danger: "no successful search result" }
     else
       render :index
     end
@@ -38,9 +39,9 @@ class ListingsController < ApplicationController
 
 
 	def new
-		if !signed_in?
-			redirect_to users_path
-		end
+		# if !signed_in?
+		# 	redirect_to users_path
+		# end
 		@listing = Listing.new
 	end
 	
@@ -84,8 +85,8 @@ class ListingsController < ApplicationController
   end
 
   def destroy
-    	listing = @listing.delete
-    	redirect_to listings_path
+  	listing = @listing.delete
+  	redirect_to listings_path
   end
 
   private
@@ -94,7 +95,7 @@ class ListingsController < ApplicationController
   end
 
   def listing_params
-    	params.require(:listing).permit(:title, :kind_of_place, :types_of_property, :rental_price, :location, :description, :photo, :bed, :guest_allowed, :bathroom, :safety_amenities, :user_id, {avatars:[]})
+    params.require(:listing).permit(:title, :kind_of_place, :types_of_property, :rental_price, :location, :description, :photo, :bed, :guest_allowed, :bathroom, :safety_amenities, :user_id, {avatars:[]})
 	end
 
 end

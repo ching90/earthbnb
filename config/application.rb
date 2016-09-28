@@ -24,6 +24,8 @@ module TestApp
     config.active_record.raise_in_transactional_callbacks = true
 
     config.active_job.queue_adapter = :sidekiq
+
+    config.serve_static_assets = true
   end
 end
 

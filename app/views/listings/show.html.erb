@@ -78,33 +78,34 @@
 
 			<%= form_for @reservation, url: listing_reservations_path(@listing.id) do |form| %>	
 
-			<div class="row">	
-					<div class="date-field col-md-6">
-					<%= form.label "Check In" %>
-      			<%= form.text_field :start_date, onchange:"getTotalDays()"%>
-      		</div>
-      		<div class="date-field col-md-6">
-					  <%= form.label :end_date %>
-	      			<%= form.text_field :end_date, onchange:"getTotalDays()"%>
+				<div class="row">	
+						<div class="date-field col-md-6">
+						<%= form.label "Check In" %>
+	      			<%= form.text_field :start_date, onchange:"getTotalDays()"%>
+	      		</div>
+	      		<div class="date-field col-md-6">
+						  <%= form.label :end_date %>
+		      			<%= form.text_field :end_date, onchange:"getTotalDays()"%>
 
-	      			<%= form.hidden_field :totalprice, value:""%>
-      		</div>
-      </div>
+		      			<%= form.hidden_field :totalprice, value:""%>
+	      		</div>
+	      </div>
 
-      <div class="row">			
-      		<div class="submit-field col-md-12">
-			    <%= form.submit "Instant Book"%>
-			</div>
+	      <div class="row">			
+	      		<div class="submit-field col-md-12">
+				    <%= form.submit "Instant Book"%>
+						</div>
+				</div>
 
 			<% end %>
-
-			<div class="row">	
+	  	
+	  	<div class="display-row">	
 			 		<div class="date-field col-md-12">
 						<div class="receipt row">
-							<span class="display_line col-md-2"></span>
-							<span class="display_line col-md-4" id="totalnights"></span>
-							<span class="display_line col-md-4" id="totalprice"></span>
-							<span class="display_line col-md-2"></span>
+
+							<span class="display_line col-md-6" id="totalnights"></span>
+							<span class="display_line col-md-6" id="totalprice"></span>
+
 							
 						</div>
 					</div>

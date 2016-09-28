@@ -1,6 +1,29 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.submit-field-welcome input{
+
+  border-color: #ff5a5f;
+  border-bottom-color: #e00007;
+  background-color: #ff5a5f;
+  padding: 10px;
+  margin-top: 20px;
+  color: #fff;
+  width: 100%;
+  font-size: 16px;
+
+  input:hover{
+  background-color: #ff7e82;
+  }
+}
+
+.glyphicon.glyphicon-log-in{
+    position: relative;
+    top: 0px;
+    left: -5px;
+}
+
+
 
 .profile-thumbnail{
 
@@ -13,8 +36,9 @@
 
 
 .dropdown:hover .dropdown-menu {
-   display: block;
+    display: block;
 }
+
 
 .nav .navbar-right a{
 
@@ -32,6 +56,8 @@
 .navbar-default {
     background-color: #fff;
     border-color: transparent;
+    background-color: transparent;
+    margin-bottom: 0px;
 }
 
 .glyphicon {
@@ -47,7 +73,7 @@
 
 }
 
-.nav .navbar-form input[type=text] {
+.submit-field {
 display: inline-block;
 box-sizing: border-box;
 min-width: 50%;
@@ -62,5 +88,226 @@ text-overflow: ellipsis;
 
 #user-show-subheader{
     letter-spacing: 2px;
+}
+
+
+/////////////codepen copy searchbar //////////////////////////////////////////////////////////
+$grey-1: #333;
+$blue-1: #00D7D8;
+$purple-1: #9261DF;
+$purple-2: #6434A2;
+.stage {
+  // @include full-header-color($purple-1);
+  transition: all 0.3s linear;
+  &.faded {
+    // @include full-header-color($purple-2);
+  }
+}
+
+// @include firefox-vh(".stage");
+.searchbar {
+  position: relative;
+  &.clicked {
+    .btn-search {
+      border-radius: 0 40px 40px 0;
+      margin-left: 500px;
+    }
+    .btn-extended {
+      margin-left: 0px;
+      margin-top: 1px;
+      width: 500px;
+      height: 38px;
+      background-color:white;
+      color: grey;
+      letter-spacing: 2px;
+      padding: 20px 30px;
+      opacity: 1;
+      border-radius: 40px 0 0 40px;
+      z-index: 9999;
+
+    }
+  }
+  .btn-search {
+    position: absolute;
+    background-color: $blue-1;
+    color: white;
+    width: 40px;
+    height: 40px;
+    left: 50%;
+    margin-left: 0px;
+    top: 50%;
+    margin-top: 1px;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.4s linear;
+    &:before {
+      position: absolute;
+      content: '';
+      display: block;
+      top: 10px;
+      left: 11px;
+      width: 10px;
+      height: 10px;
+      border-radius: 20px;
+      box-shadow: 0px 0px 0px 3px #fff;
+    }
+    &:after {
+      content: "";
+      position: absolute;
+      width: 15px;
+      height: 4px;
+      top: 22px;
+      left: 19px;
+      background-color: #fff;
+      transform: rotateZ(45deg);
+      border-radius: 3px;
+    }
+  }
+  .btn-extended {
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    left: 50%;
+    margin-left: 5px;
+    top: 50%;
+    margin-top: -35px;
+    border-radius: 40px;
+    padding: 0;
+    font-size: 16px;
+    border: none;
+    opacity: 0;
+    transition: all 0.4s linear;
+    &:focus {
+      outline-width: 0px;
+    }
+  }
+}
+
+.credit {
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  padding: 5px 20px;
+}
+//////////////
+
+
+//navbar pure css////////////////////////////////////////////////////////////////
+/*
+  Simple CSS navigation bar with fading inactive links
+*/
+
+@import url(http://fonts.googleapis.com/css?family=Lato:300,500);
+
+/*
+  pad the body and set default font styles
+*/
+body {
+ padding: 0px; 
+ font: 300 16px/1.2 Lato;
+}
+
+/*
+  navigation
+*/
+.nav-rightbar {
+  list-style: none;
+}
+
+/*
+  nav list items
+  1. side by side
+  2. needed for circle positioning
+*/
+.nav-rightbar  li {
+  float: right; /*1*/
+    margin-right: 30px;
+}
+
+/*
+  nav link items
+*/
+.nav-rightbar  > li a {
+  display: block; /*1*/
+  padding: 10px 20px; /*2*/
+  text-decoration: none; /*3*/
+  color: #b3b2b2; /*4*/
+  border-bottom: 1px solid #eee;
+  transition: all ease .5s;
+  height: 40px;
+}
+
+/*
+  fade out all links on ul hover
+*/
+.nav-rightbar:hover > li a {
+  opacity: .5;
+  transition: all ease .5s;
+}
+
+/*
+  override previous rule to highlight current link
+*/
+.nav-rightbar > li:hover a {
+  opacity: 1;
+  color: #E74C3C;
+  border-color: #E74C3C;
+}///
+
+////welcome page///////////////////////////////////////////////////////
+.welcome-container{
+    background-image: url(https://static.pexels.com/photos/91985/pexels-photo-91985.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: "Montserrat", sans-serif;
+    
+    width:100%;
+    position: absolute;
+    top:0;
+    z-index: -999;
+
+    h1 {
+    text-align: center;
+    text-shadow: 2px 1px black;
+    letter-spacing: 2px;
+    color:yellow;
+    padding-top: 50px;
+
+
+        #btn-discover input{
+              display: inline-block;
+              margin-left: 0%;
+              padding: 15px 50px;
+              border: 2px solid #c9c9c9;
+              border-radius: 5px;
+              background-color: transparent;
+              -webkit-transition: all 500ms ease-in, all 450ms ease-in;
+              -o-transition: all 500ms ease-in, all 450ms ease-in;
+              transition: all 500ms ease-in, all 450ms ease-in;
+              color: #c2c2c2;
+              font-size: 12px;
+              font-weight: 600;
+              text-align: center;
+              letter-spacing: 1px;
+              text-decoration: none;
+              text-transform: uppercase;
+        }
+        #btn-discover input:hover {
+          border-color: #0cafeb;
+          background-color: #0cafeb;
+          -webkit-transition: all 250ms ease-in;
+          -o-transition: all 250ms ease-in;
+          transition: all 250ms ease-in;
+          color: white;
+          font-weight: 700;
+        }
+
+
+
+    }
+
+
+
 }
 

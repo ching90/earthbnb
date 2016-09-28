@@ -4,6 +4,13 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
+  <style type="text/css">
+  	h1{
+  		color:blue;
+  	}
+  </style>
+
+  <!-- Do inline css styling, because when u send the email, your css file or bootstrap will not be linked -->
     <h1>Congratulations! You have received a booking from <%= @customer %></h1>
     <p>
       You can see details of the listing of your reservation here: <%= @listing.title %>

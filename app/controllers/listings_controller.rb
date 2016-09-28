@@ -1,25 +1,40 @@
 class ListingsController < ApplicationController
 	before_action :set_listing, only: [:show, :update, :edit, :destroy]
 
+
 	def index
+    @listings = Listing.all
+    listings_per_page = 7
+    params[:page] = 1 unless params[:page]
+    first_listing = (params[:page].to_i - 1 ) * listings_per_page
+    @total_pages = @listings.count / listings_per_page
+
 		if !signed_in?
 			redirect_to users_path
 
     else
-      @listing = Listing.all
-      listings_per_page = 7
-      params[:page] = 1 unless params[:page]
-      first_listing = (params[:page].to_i - 1 ) * listings_per_page
-      listings = Listing.all
-      @total_pages = listings.count / listings_per_page
-      
-      if listings.count % listings_per_page > 0
+      if @listings.count % listings_per_page > 0
         @total_pages += 1
       end
-        @listings = listings[first_listing...(first_listing + listings_per_page)]
+        @listings = @listings[first_listing...(first_listing + listings_per_page)]
     end
   end
-		
+
+  def search
+    
+    @listings = Listing.search(params[:term], fields: ["title", "location"], mispellings: {below: 5})
+    listings_per_page = 7
+    params[:page] = 1 unless params[:page]
+    first_listing = (params[:page].to_i - 1 ) * listings_per_page
+    @total_pages = @listings.count / listings_per_page
+
+
+    if @listings.blank?
+      redirect_to listings_path, flash:{danger: "no successful search result"}
+    else
+      render :index
+    end
+  end		
 
 
 	def new

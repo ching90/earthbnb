@@ -47,8 +47,7 @@ class ReservationsController < ApplicationController
       ReservationJob.perform_later(current_user.email, @host, @reservation.listing.id, @reservation.id)
       # call out reservation job to perform the mail sending task after @reservation is successfully saved
 
-
-      redirect_to listing_path(@listing.id)
+      redirect_to new_payment_path(reservation_id: @reservation.id)
     
     else
       render 'show'

@@ -1,8 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'sidekiq'
 
-gem 'mini_magick'
 
 gem 'carrierwave', '>= 1.0.0.beta', '< 2.0'
 gem 'omniauth-facebook'
@@ -31,7 +29,12 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'gon'
+gem 'searchkick'
+gem 'braintree'
 
+gem 'sidekiq'
+
+gem 'mini_magick'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

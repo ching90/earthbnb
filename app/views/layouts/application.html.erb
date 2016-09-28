@@ -23,57 +23,65 @@
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
 
+  <script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+
 </head>
 <body>
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
 
 
-
-
-
-<div class="navbar container-fluid">
-  <div class="navbar navbar-default"> 
+<div class="navbar container-fluid" style="margin-bottom:0px;">
+  <div class="navbar navbar-default navbar-fixed-top"> 
       <div class="navbar-inner">
 
         <ul class="nav navbar-nav navbar-left">
           <li>
-              <a href="#"><%=image_tag 'http://www.bladecreativebranding.com/blog/wp-content/uploads/2014/11/New-2014-Air-Bnb-Logo.png', style:"margin-top:0px; height:30px; width:30px;"%></a>
+              <a href="#"><%=image_tag 'http://logok.org/wp-content/uploads/2014/07/airbnb-logo-belo-880x628.png', style:"margin-top:-17px; height:68px; width:96px;"%></a>
           </li>
           
           <li>
-            <span class="glyphicon glyphicon-search"></span>
-            <li><form  class= "nav navbar-form">
-              <div class="form-group">
-                <input type="text" class="form-control" placeholder="Where to?">
-              </div>
-<!--               <button type="submit" class="btn btn-default">Submit</button> -->
-            </form>
-            </li>
+               <div class="stage">
+
+                <div class="cell"> 
+                  <div class="searchbar"> 
+   
+                    <form class="new_listing" id="new_listing" action="/search" accept-charset="UTF-8" method="get">
+
+                        <input type="text" name="term" class="btn-extended" id="term" value="kyoto" placeholder="Where do you wanna go?">
+             
+                    </form>
+                    <div class="btn-search">
+
+                    </div>  
+                  </div>
+                </div> <!-- .cell -->
+               </div><!-- .stage -->
+
           </li>
         </ul>
 
-        <ul class="nav navbar-nav navbar-right">  
+
+        <ul class="nav-rightbar">
           <% if signed_in? %>
 <!--           <li>Signed in as: <%= current_user.email %><li> -->
-          <li class="active"><a href="/">Home</a></li>
+           
+            <li class="dropdown">
+              <a class="dropdown-toggle" href="/users/<%=current_user.id%>">My Profile
+                  <%if current_user.avatars != []%>
 
-          <li><%= link_to "Become a Host", listings_path, method: "get"%></li>
-          
-          <li class="dropdown">
-            <a class="dropdown-toggle" href="/users/<%=current_user.id%>">My Profile
-                <%if current_user.avatars != []%>
+                    <span><%= image_tag (current_user.avatars[0].thumb.url), class:"profile-thumbnail"%></span>
+                  <%end%>
+              </a>
 
-                  <span><%= image_tag (current_user.avatars[0].thumb.url), class:"profile-thumbnail"%></span>
-                <%end%>
-            </a>
+              <ul class="dropdown-menu">
+                <li><%=link_to 'Edit', edit_user_path(current_user.id)%></li>
+                <li><a href="#">Account Settings</a></li>
+                <li><%= link_to 'Log Out', sign_out_path, method: :delete %></li> 
+              </ul>
 
-            <ul class="dropdown-menu">
-              <li><%=link_to 'Edit', edit_user_path(current_user.id)%></li>
-              <li><a href="#">Account Settings</a></li>
-              <li><%= link_to 'Log Out', sign_out_path, method: :delete %></li> 
-            </ul>
-
-          </li>
+            </li>
+            <li><%= link_to "Become a Host", listings_path, method: "get"%></li>
+            <li class="circle"><a href="/">Home</a></li>
 
           <%else%>
           

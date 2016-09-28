@@ -1,3 +1,40 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#session_email{
+	width: 100%;
+	margin-bottom: 10px;
+	padding:10px;
+	letter-spacing: 1px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	outline: none;
+}
+
+#session_password{
+	width: 100%;
+	margin-bottom: 10px;
+	padding:10px;
+	letter-spacing: 1px;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	outline: none;
+}
+
+.other-links{
+	text-align: center;
+}
+
+.sign-in.container{
+	margin-top: 50px;
+}
+
+#clearance h2{
+	margin-bottom: 30px;
+}
+
+.sign-in-botton.row{
+	text-align: center;
+}

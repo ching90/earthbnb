@@ -1,4 +1,4 @@
-class AddTotalpriceToReservations < ActiveRecord::Migration
+class AddTotalPriceToReservations < ActiveRecord::Migration
   def change
     add_column :reservations, :totalprice, :integer
   end

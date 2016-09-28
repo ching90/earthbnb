@@ -1,0 +1,568 @@
+/* line 6, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.video_container {
+  position: relative;
+  background: none;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  text-align: center;
+  color: #fff;
+  padding-top: 130px;
+  min-height: 500px;
+  letter-spacing: 2px;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* line 19, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.video_container h1 {
+  font-size: 50px;
+  line-height: 1.3;
+}
+
+/* line 23, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.video_container h1 span {
+  font-size: 20px;
+  color: #e8f380;
+  border-bottom: 2px solid #e8f380;
+  padding-bottom: 12px;
+  line-height: 3;
+}
+
+/* line 31, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.photo {
+  position: absolute;
+  object-fit: contain;
+  z-index: -5;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+}
+
+/* line 41, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.listing_header_container {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  color: black;
+  letter-spacing: 2px;
+}
+/* line 47, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.listing_header_container h1 {
+  font-size: 20px;
+}
+
+@media only screen and (max-width: 500px) {
+  /* line 55, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+  .cardDesign {
+    width: 100%;
+  }
+}
+/* line 60, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+#cardDesign-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+/* line 70, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.cardDesign {
+  height: 350px;
+  outline-style: solid;
+  outline-width: 1px;
+  padding-right: 0px;
+  padding-left: 0px;
+  margin-top: 15px;
+}
+
+/* line 81, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.cardDesign:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  left: 8px;
+  transition: 0.5s;
+}
+
+/* line 87, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+ol {
+  margin: 0 0 2px 0;
+}
+
+/* line 91, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.img-uppercard {
+  overflow: hidden;
+  height: 200px;
+}
+
+/* line 96, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.listing-title {
+  font-size: 14px;
+}
+
+/* line 100, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.img-lowercard {
+  height: 150px;
+  line-height: 14px;
+  font-size: 12px;
+  padding: 5px;
+}
+/* line 106, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.img-lowercard .btn-success {
+  border-radius: 20px;
+}
+/* line 110, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.img-lowercard .btn-success:hover {
+  cursor: pointer;
+  transition: 0.5s;
+  color: #5cb85c;
+  background-color: #fff;
+}
+
+/* line 120, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.tales {
+  width: 100%;
+}
+
+/* line 123, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.carousel-inner {
+  width: 100%;
+  height: 400px !important;
+}
+
+/* line 129, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.carousel-inner img {
+  margin: 0 auto;
+}
+
+/* line 134, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+#divider {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+@media only screen and (max-width: 479px) {
+  /* line 141, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+  #divider {
+    width: 100%;
+  }
+}
+/* line 147, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.display-listing-info.container-fluid {
+  margin-bottom: 100px;
+}
+
+/* line 151, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.listing-reservation-form.col-md-6 {
+  border: 2px solid lightgrey;
+  padding-left: 85px;
+  padding-right: 85px;
+  height: 200px;
+}
+
+/* line 158, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.submit-field input {
+  border-color: #ff5a5f;
+  border-bottom-color: #e00007;
+  background-color: #ff5a5f;
+  padding: 10px;
+  margin-top: 20px;
+  color: #fff;
+  width: 100%;
+  font-size: 16px;
+}
+
+/* line 170, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.submit-field input:hover {
+  background-color: #ff7e82;
+}
+
+/* line 174, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.display_line {
+  padding-left: 15px;
+  padding-right: 15px;
+  text-align: center;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+/* line 183, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.hasDatePicker {
+  line-height: 20px;
+  padding-right: 5px;
+}
+
+/* line 188, /Users/macbookpro/test_app/app/assets/stylesheets/listings.scss */
+.display-row {
+  margin-top: 40px;
+}
+/* line 4, /Users/macbookpro/test_app/app/assets/stylesheets/sessions.scss */
+#session_email {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  letter-spacing: 1px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+}
+
+/* line 15, /Users/macbookpro/test_app/app/assets/stylesheets/sessions.scss */
+#session_password {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  letter-spacing: 1px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+}
+
+/* line 26, /Users/macbookpro/test_app/app/assets/stylesheets/sessions.scss */
+.other-links {
+  text-align: center;
+}
+
+/* line 30, /Users/macbookpro/test_app/app/assets/stylesheets/sessions.scss */
+.sign-in.container {
+  margin-top: 50px;
+}
+
+/* line 34, /Users/macbookpro/test_app/app/assets/stylesheets/sessions.scss */
+#clearance h2 {
+  margin-bottom: 30px;
+}
+
+/* line 38, /Users/macbookpro/test_app/app/assets/stylesheets/sessions.scss */
+.sign-in-botton.row {
+  text-align: center;
+}
+@import url(http://fonts.googleapis.com/css?family=Lato:300,500);
+/* line 5, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+#new_listing {
+  margin: 50px;
+}
+
+/* line 9, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.submit-field-welcome input {
+  border-color: #ff5a5f;
+  border-bottom-color: #e00007;
+  background-color: #ff5a5f;
+  padding: 10px;
+  margin-top: 20px;
+  color: #fff;
+  width: 100%;
+  font-size: 16px;
+}
+/* line 20, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.submit-field-welcome input input:hover {
+  background-color: #ff7e82;
+}
+
+/* line 25, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.glyphicon.glyphicon-log-in {
+  position: relative;
+  top: 0px;
+  left: -5px;
+}
+
+/* line 33, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.profile-thumbnail {
+  height: 25px;
+  width: 25px;
+  border: 2px solid lightgrey;
+  border-radius: 25px;
+}
+
+/* line 43, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* line 48, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.nav .navbar-right a {
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 14px;
+  color: #484848;
+}
+
+/* line 57, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.nav li a {
+  padding-top: 6px;
+}
+
+/* line 61, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.navbar-default {
+  background-color: #fff;
+  border-color: transparent;
+  background-color: black;
+  margin-bottom: 0px;
+}
+
+/* line 68, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.glyphicon {
+  position: absolute;
+  top: 15px;
+}
+
+/* line 73, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.form-control {
+  border: 0px;
+  border-color: transparent;
+  margin-left: 5px;
+  outline: 0;
+}
+
+/* line 81, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.submit-field {
+  display: inline-block;
+  box-sizing: border-box;
+  min-width: 50%;
+  width: 400px;
+  height: 30px;
+  position: relative;
+  cursor: pointer;
+  font-size: 14px;
+  font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  text-overflow: ellipsis;
+}
+
+/* line 94, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+#user-show-subheader {
+  letter-spacing: 2px;
+}
+
+/* line 98, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.user-show.container-fluid {
+  margin: 50px;
+}
+
+/* line 107, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.stage {
+  transition: all 0.3s linear;
+}
+
+/* line 116, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.searchbar {
+  position: relative;
+}
+/* line 119, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.searchbar.clicked .btn-search {
+  border-radius: 0 40px 40px 0;
+  margin-left: 500px;
+}
+/* line 123, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.searchbar.clicked .btn-extended {
+  margin-left: -50px;
+  margin-top: -46px;
+  width: 500px;
+  height: 38px;
+  background-color: white;
+  color: grey;
+  letter-spacing: 2px;
+  padding: 20px 30px;
+  opacity: 1;
+  border-radius: 40px 0 0 40px;
+  z-index: 9999;
+}
+/* line 138, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.searchbar .btn-search {
+  position: absolute;
+  background-color: #00D7D8;
+  color: white;
+  width: 40px;
+  height: 40px;
+  left: 0;
+  margin-left: 0px;
+  top: -47px;
+  margin-top: 1px;
+  border-radius: 40px;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+/* line 151, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.searchbar .btn-search:before {
+  position: absolute;
+  content: '';
+  display: block;
+  top: 10px;
+  left: 11px;
+  width: 10px;
+  height: 10px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 0px 3px #fff;
+}
+/* line 162, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.searchbar .btn-search:after {
+  content: "";
+  position: absolute;
+  width: 15px;
+  height: 4px;
+  top: 22px;
+  left: 19px;
+  background-color: #fff;
+  transform: rotateZ(45deg);
+  border-radius: 3px;
+}
+/* line 174, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.searchbar .btn-extended {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  left: 50%;
+  margin-left: 5px;
+  top: 50%;
+  margin-top: -35px;
+  border-radius: 40px;
+  padding: 0;
+  font-size: 16px;
+  border: none;
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+}
+/* line 188, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.searchbar .btn-extended:focus {
+  outline-width: 0px;
+}
+
+/* line 194, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.credit {
+  position: absolute;
+  bottom: 0;
+  background-color: #fff;
+  padding: 5px 20px;
+}
+
+/*
+  Simple CSS navigation bar with fading inactive links
+*/
+/*
+  pad the body and set default font styles
+*/
+/* line 213, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+body {
+  padding: 0px;
+  font: 300 16px/1.2 Lato;
+}
+
+/*
+  navigation
+*/
+/* line 221, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.nav-rightbar {
+  list-style: none;
+}
+
+/*
+  nav list items
+  1. side by side
+  2. needed for circle positioning
+*/
+/* line 230, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.nav-rightbar li {
+  float: right;
+  /*1*/
+  margin-right: 30px;
+}
+
+/*
+  nav link items
+*/
+/* line 238, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.nav-rightbar > li a {
+  display: block;
+  /*1*/
+  padding: 10px 20px;
+  /*2*/
+  text-decoration: none;
+  /*3*/
+  color: #b3b2b2;
+  /*4*/
+  border-bottom: 1px solid #eee;
+  transition: all ease .5s;
+  height: 40px;
+}
+
+/*
+  fade out all links on ul hover
+*/
+/* line 251, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.nav-rightbar:hover > li a {
+  opacity: .5;
+  transition: all ease .5s;
+}
+
+/*
+  override previous rule to highlight current link
+*/
+/* line 259, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.nav-rightbar > li:hover a {
+  opacity: 1;
+  color: #E74C3C;
+  border-color: #E74C3C;
+}
+
+/* line 266, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.welcome-container {
+  background-image: url(https://static.pexels.com/photos/91985/pexels-photo-91985.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: "Montserrat", sans-serif;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: -999;
+}
+/* line 278, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.welcome-container h1 {
+  text-align: center;
+  text-shadow: 2px 1px black;
+  letter-spacing: 2px;
+  color: yellow;
+  padding-top: 50px;
+}
+/* line 286, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.welcome-container h1 #btn-discover input {
+  display: inline-block;
+  margin-left: 0%;
+  padding: 15px 50px;
+  border: 2px solid #c9c9c9;
+  border-radius: 5px;
+  background-color: transparent;
+  -webkit-transition: all 500ms ease-in, all 450ms ease-in;
+  -o-transition: all 500ms ease-in, all 450ms ease-in;
+  transition: all 500ms ease-in, all 450ms ease-in;
+  color: #c2c2c2;
+  font-size: 12px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 1px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+/* line 304, /Users/macbookpro/test_app/app/assets/stylesheets/users.scss */
+.welcome-container h1 #btn-discover input:hover {
+  border-color: #0cafeb;
+  background-color: #0cafeb;
+  -webkit-transition: all 250ms ease-in;
+  -o-transition: all 250ms ease-in;
+  transition: all 250ms ease-in;
+  color: white;
+  font-weight: 700;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+
+
+ */
+

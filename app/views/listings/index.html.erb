@@ -22,7 +22,8 @@
 		<div class="cardDesign col-md-3">
 			<div class="img-uppercard">
 				<%if listing.avatars.present?%>
-				<a href="<%= listing_path(listing) %>"><%= image_tag (listing.avatars[0].square.url) %></a>
+					<a href="<%= listing_path(listing) %>"><%= image_tag (listing.avatars[0].square.url) %></a>
+				<%end%>
 			</div>	
 			</br>
 			<div class="img-lowercard">

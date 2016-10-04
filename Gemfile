@@ -55,6 +55,11 @@ gem 'rack-timeout'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+  gem 'rspec-rails', '~> 3.5'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'guard-puma'
+  gem 'rspec'
 end
 
 group :development do

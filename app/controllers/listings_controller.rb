@@ -49,8 +49,8 @@ class ListingsController < ApplicationController
 	def create
     	@listing = current_user.listings.new(listing_params)
        if @listing.save 
+        byebug
           Listing.reindex
-
 		      redirect_to listing_path(@listing.id)
        else
           render 'index'
